@@ -1,6 +1,8 @@
 package org.burgers.queue.play.listener;
 
 
+import org.burgers.queue.play.domain.Movie;
+import org.burgers.queue.play.domain.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,21 +14,23 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Component
 public class JmsMessageListener implements MessageListener {
+    @Autowired
+    private Repository repository;
 
-        @Autowired
-        private AtomicInteger counter = null;
-
-        public void onMessage(Message message) {
+    public void onMessage(Message message) {
+        if (message instanceof TextMessage) {
+            TextMessage tm = (TextMessage) message;
+            String title = null;
             try {
-                if (message instanceof TextMessage) {
-                    TextMessage tm = (TextMessage)message;
-                    String msg = tm.getText();
-                    System.out.println("msg = " + msg);
-
-                    counter.incrementAndGet();
-                }
+                title = tm.getStringProperty("title");
             } catch (JMSException e) {
                 e.printStackTrace();
             }
+            repository.save(new Movie(title, false));
         }
+    }
+
+    public void setRepository(Repository repository) {
+        this.repository = repository;
+    }
 }

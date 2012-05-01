@@ -44,7 +44,4 @@
         <jms:listener destination="org.springbyexample.jms.test" ref="jmsMessageListener"/>
     </jms:listener-container>
 
-    <!-- Counter for consumer to increment and test to verify count -->
-    <bean id="counter" class="java.util.concurrent.atomic.AtomicInteger"/>
-
 </beans>
