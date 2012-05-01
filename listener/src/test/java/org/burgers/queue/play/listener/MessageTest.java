@@ -1,4 +1,4 @@
-package org.burgers.queue.play.queue.app;
+package org.burgers.queue.play.listener;
 
 import org.burgers.queue.play.client.MessageProducer;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.jms.JMSException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:contexts/TestQueueAppContext.xml"})
+@ContextConfiguration(locations = {"classpath*:contexts/TestListenerContext.xml"})
 public class MessageTest {
     @Autowired
     private MessageProducer messageProducer;

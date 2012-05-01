@@ -10,7 +10,7 @@
     <modules>
         <module>parent</module>
         <module>domain</module>
-        <module>queue-app</module>
+        <module>listener</module>
         <module>client</module>
     </modules>
     <packaging>pom</packaging>

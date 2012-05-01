@@ -1,4 +1,4 @@
-package org.burgers.queue.play.queue.app;
+package org.burgers.queue.play.listener;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
