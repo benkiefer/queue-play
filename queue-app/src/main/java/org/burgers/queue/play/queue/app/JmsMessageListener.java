@@ -18,8 +18,6 @@ public class JmsMessageListener implements MessageListener {
 
         public void onMessage(Message message) {
             try {
-                int messageCount = message.getIntProperty(MessageProducer.MESSAGE_COUNT);
-
                 if (message instanceof TextMessage) {
                     TextMessage tm = (TextMessage)message;
                     String msg = tm.getText();
