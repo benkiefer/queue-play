@@ -26,4 +26,13 @@ public class MessageProducer {
             }
         });
     }
+
+    public void sendObject(ExternalMovie movie){
+        final ExternalMovie myMovie = movie;
+        template.send(new MessageCreator() {
+            public Message createMessage(Session session) throws JMSException {
+                return session.createObjectMessage(myMovie);
+            }
+        });
+    }
 }

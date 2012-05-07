@@ -36,7 +36,7 @@ public class RepositoryImpl implements Repository {
 
     @Override
     public List findAll() {
-        return hibernateTemplate.find("from Movie");
+        return hibernateTemplate.loadAll(Movie.class);
     }
 
     @Override

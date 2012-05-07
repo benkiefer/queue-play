@@ -19,6 +19,11 @@ public class MessageServiceClientImpl implements MessageServiceClient{
         messageProducer.send(title);
     }
 
+    @Override
+    public void addMovie(ExternalMovie movie) throws JMSException {
+        messageProducer.sendObject(movie);
+    }
+
     public void setMessageProducer(MessageProducer messageProducer) {
         this.messageProducer = messageProducer;
     }
