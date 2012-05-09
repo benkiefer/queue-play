@@ -7,12 +7,14 @@
        http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+    <context:property-placeholder location="classpath:env.properties"/>
+
     <context:component-scan base-package="org.burgers.queue.play.client"/>
 
     <!--  ActiveMQ Destination  -->
-    <amq:queue id="destination" physicalName="org.burgers.queue.play"/>
+    <amq:queue id="destination" physicalName="${queue.play.client.queue.name}"/>
 
-    <amq:connectionFactory id="jmsFactory" brokerURL="tcp://bkiefer-PC:61616"/>
+    <amq:connectionFactory id="jmsFactory" brokerURL="${queue.play.client.broker.url}"/>
 
     <bean id="jmsProducerConnectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
         <property name="targetConnectionFactory" ref="jmsFactory"/>
