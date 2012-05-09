@@ -14,7 +14,7 @@
     <import resource="classpath:contexts/DomainContext.xml"/>
 
     <!--  ActiveMQ Destination  -->
-    <amq:queue id="destination" physicalName="org.springbyexample.jms.test"/>
+    <amq:queue id="destination" physicalName="org.burgers.queue.play"/>
 
     <!-- JMS ConnectionFactory to use, configuring the embedded broker using XML -->
     <amq:connectionFactory id="jmsFactory" brokerURL="tcp://bkiefer-PC:61616"/>
@@ -35,7 +35,7 @@
     <jms:listener-container container-type="default"
                             connection-factory="jmsConsumerConnectionFactory"
                             acknowledge="auto">
-        <jms:listener destination="org.springbyexample.jms.test" ref="jmsMessageListener"/>
+        <jms:listener destination="org.burgers.queue.play" ref="jmsMessageListener"/>
     </jms:listener-container>
 
 </beans>
