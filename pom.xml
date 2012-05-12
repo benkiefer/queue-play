@@ -9,6 +9,7 @@
     <version>1.0</version>
     <modules>
         <module>parent</module>
+        <module>enforcer-rules</module>
         <module>domain</module>
         <module>listener</module>
         <module>client</module>
